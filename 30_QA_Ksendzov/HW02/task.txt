@@ -62,7 +62,9 @@ the seConD 2
 
 14. Сделать текстовый файл tf_4.txt в котором будет 15 строк.
 echo -ne "\n\n\n\n\n\n\n\n\n\n\n\n\n\n" > tf_4.txt
-another way: printf "\n\n\n\n\n\n\n\n\n\n\n\n\n\n" > tf_4.txt
+another: printf "\n\n\n\n\n\n\n\n\n\n\n\n\n\n" > tf_4.txt
+another: printf "%s\n" "line number "{1..15} > tf_4.txt
+15 empty lines: printf "%s\n" "line number "{1..15} | sed 's/.*//' > tf_4.txt
 
 15. Сделать текстовый файл tF_5.txt в котором будет 13 строк.
 echo -ne "\n\n\n\n\n\n\n\n\n\n\n\n" > tf_4.txt
@@ -96,10 +98,10 @@ grep -s sec *
  grep -is sec *
 
 25. Найти строки в файлах где есть только комбинация букв “sec” в текущей папке
-grep -s ^sec$ *
+grep -s '^sec$' *
 
 26. Найти строки в файлах где есть только комбинация букв “sec” в любом регистре в текущей папке
-grep -is ^sec$ *
+grep -is '^sec$' *
 
 27. Найти строки в файлах где есть комбинация букв “second” в текущей папке
 grep -s second *
