@@ -1,0 +1,155 @@
+JSON
+4. Создать внешний репозиторий c названием JSON.
+GitHub > Repos -> New -> JSON
+
+5. Клонировать репозиторий JSON на локальный компьютер.
+git clone https://github.com/alexmyt/JSON.git
+
+# Необходимо ввести эти данные, иначе будет невозможно отправлять изменения в удаленный репозиторий
+# Ключ --global можно опустить, тогда настройки сохранятся толюко для текущего локального репозитория
+git config --global user.email "alexmyt1@gmail.com"
+git config --global user.name "Alexey Mytsykov"
+
+# Для протокола SSH необходимо добавить в аккаунт публичный ключ:
+1. ssh-keygen -t ed25519          // на все непонятные вопросы нажать ENTER
+2. clip < ~/.ssh/id_ed25519.pub   // команда копирует содержимое файла в буфер обмена
+3. зайти на страницу https://github.com/settings/keys, нажать "New SSH key", вставить содержимое буфера обмена
+4. траблшутинг и подробности тут: https://docs.github.com/en/authentication/troubleshooting-ssh/error-permission-denied-publickey 
+
+6. Внутри локального JSON создать файл “new.json”.
+cd JSON; touch new.json
+
+7. Добавить файл под гит.
+git add new.json
+
+8. Закоммитить файл.
+git commit -m "Create new.json"
+
+9. Отправить файл на внешний GitHub репозиторий.
+git push
+
+10. Отредактировать содержание файла “new.json” - написать информацию о себе (ФИО, возраст, количество домашних животных, будущая желаемая зарплата). Всё написать в формате JSON.
+cat > new.json << EOF
+{ 
+  "name": "Alexey Mytsykov",
+  "age": 29,
+  "petsCount": 0,
+  "expectedSalarity": "100500 usd"
+}
+EOF
+
+11. Отправить изменения на внешний репозиторий.
+git add new.json; git commit -m "Fill new.json with info"; git push
+
+12. Создать файл preferences.json
+touch preferences.json
+
+13. В файл preferences.json добавить информацию о своих предпочтениях (Любимый фильм, любимый сериал, любимая еда, любимое время года, сторона которую хотели бы посетить) в формате JSON.
+cat > preferences.json << EOF
+{
+  "favorites": {
+    "movie": "Love and pigeons",
+    "series": "The Big Bang Theory",
+    "food": "pizza",
+    "season": "autumn"
+  },
+  "countryToVisit": "Iceland"
+}
+EOF
+
+14. Создать файл sklls.json добавить информацию о скиллах которые будут изучены на курсе в формате JSON
+cat > sklls.json << EOF
+{
+  "skills": ["bash", "GIT", "JavaScript", "Postman", "etc"]
+}
+EOF
+
+15. Отправить сразу 2 файла на внешний репозиторий.
+git add .; git commit -m "Create some jsons"; git push
+
+
+16. На веб интерфейсе создать файл bug_report.json.
+GitHub -> Repos -> JSON -> "Add file"
+
+17. Сделать Commit changes (сохранить) изменения на веб интерфейсе.
+"Commit changes"
+
+18. На веб интерфейсе модифицировать файл bug_report.json, добавить баг репорт в формате JSON.
+bug_report.json -> "Edit icon"
+
+19. Сделать Commit changes (сохранить) изменения на веб интерфейсе.
+"Commit changes"
+
+20. Синхронизировать внешний и локальный репозиторий JSON
+git pull
+
+XML
+21. Создать внешний репозиторий c названием XML.
+GitHub > Repos -> New -> XML
+
+22. Клонировать репозиторий XML на локальный компьютер.
+git clone https://github.com/alexmyt/XML.git
+
+23. Внутри локального XML создать файл “new.xml”.
+cd JSON; touch new.xml
+
+24. Добавить файл под гит.
+git add new.xml
+
+25. Закоммитить файл.
+git commit
+
+26. Отправить файл на внешний GitHub репозиторий.
+git put
+
+27. Отредактировать содержание файла “new.xml” - написать информацию о себе (ФИО, возраст, количество домашних животных, будущая желаемая зарплата). Всё написать в формате XML.
+cat > new.xml << EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <age>29</age>
+   <expectedSalarity>100500 usd</expectedSalarity>
+   <name>Alexey Mytsykov</name>
+   <petsCount>0</petsCount>
+</root>
+EOF
+
+
+28. Отправить изменения на внешний репозиторий.
+
+
+29. Создать файл preferences.xml
+30. В файл preferences.xml добавить информацию о своих предпочтениях (Любимый фильм, любимый сериал, любимая еда, любимое время года, сторона которую хотели бы посетить) в формате XML.
+cat > preferences.xml << EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <favorites>
+      <food>pizza</food>
+      <movie>Love and pigeons</movie>
+      <season>autumn</season>
+      <series>The Big Bang Theory</series>
+   </favorites>
+   <countryToVisit>Iceland</countryToVisit>
+</root>
+EOF
+
+31. Создать файл sklls.xml добавить информацию о скиллах которые будут изучены на курсе в формате XML
+cat > sklls.xml << EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <skills>
+      <element>bash</element>
+      <element>GIT</element>
+      <element>JavaScript</element>
+      <element>Postman</element>
+      <element>etc</element>
+   </skills>
+</root>
+EOF
+
+32. Сделать коммит в одну строку.
+33. Отправить сразу 2 файла на внешний репозиторий.
+34. На веб интерфейсе создать файл bug_report.xml.
+35. Сделать Commit changes (сохранить) изменения на веб интерфейсе.
+36. На веб интерфейсе модифицировать файл bug_report.xml, добавить баг репорт в формате XML.
+37. Сделать Commit changes (сохранить) изменения на веб интерфейсе.
+38. Синхронизировать внешний и локальный репозиторий XML
