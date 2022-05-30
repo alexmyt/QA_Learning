@@ -79,7 +79,8 @@ cd ..
 cat tf_3.txt
 
 19. Найти путь к файлу tf_4.txt
-readlink -f tf_4.txt
+find -name "tf_4.txt" // print relative path and filename
+readlink -f $(find -name "tf_4.txt") 2>/dev/null || echo 'not found'  // print absolute path and filename or 'not found'
 
 20. Отчистить файл tf_4.txt от содержимого без удаления самого файла.
 > tf_4.txt
@@ -107,7 +108,8 @@ grep -is '^sec$' *
 grep -s second *
 
 28. Найти строки в файлах где есть комбинация букв “second” в любом регистре в текущей папке
-grep -si second *
+grep -si second * // include cur dir
+find . -mindepth 2 | xargs grep -i second // exclude cur dir
 
 29. Найти строки в файлах где есть комбинация букв “second” во всех папках ниже уровнем
 grep -sir second ./*
