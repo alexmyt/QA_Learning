@@ -43,9 +43,21 @@ EOF`
 
 7. В ветке CheckLists набросать структуру чек листа.
 `git checkout CheckLists`
+`touch checklist001.txt`
+`cat > checklist001.txt`
+1. Create System and Acceptance Tests [ ]
+2. Start Acceptance Test Creation [ ]
+3. Identify Test team [ ]
+4. Create Workplan [ ]
+5. Create Test Approach [ ]
+6. Link Acceptance Criteria and Requirements to form the basis of Acceptance Test [ ]
+`Ctrl+C`
 
 8. Запушить структуру на внешний репозиторий
-`git add checkList001; git commit 'Add check-list'; git push`
+`git add checklist001.txt; git commit -m 'Add check-list'; git push`
 
 9. На внешнем репозитории сделать Pull Request ветки CheckLists в main
+`Repo -> Pull requests -> New pull request -> compare:CheckLists -> Create -> Create`
+
 10. Синхронизировать Внешнюю и Локальную ветки Main
+`git pull`
