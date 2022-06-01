@@ -1,0 +1,11 @@
+{
+  "bugs": [
+    {
+      "id": 100,
+      "summary": "Typos in text",
+      "description": "",
+      "priority": "Low",
+      "severity": "Minor"
+    }
+  ]
+}
