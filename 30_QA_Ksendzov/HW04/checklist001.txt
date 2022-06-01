@@ -1,0 +1,6 @@
+1. Create System and Acceptance Tests [ ]
+2. Start Acceptance Test Creation [ ]
+3. Identify Test team [ ]
+4. Create Workplan [ ]
+5. Create Test Approach [ ]
+6. Link Acceptance Criteria and Requirements to form the basis of Acceptance Test [ ]
