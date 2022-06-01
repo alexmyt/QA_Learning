@@ -100,19 +100,21 @@ grep -s sec *
 
 25. Найти строки в файлах где есть только комбинация букв “sec” в текущей папке
 grep -s '^sec$' *
+grep -x sec *
 
 26. Найти строки в файлах где есть только комбинация букв “sec” в любом регистре в текущей папке
 grep -is '^sec$' *
+grep -ix sec *
 
 27. Найти строки в файлах где есть комбинация букв “second” в текущей папке
 grep -s second *
 
 28. Найти строки в файлах где есть комбинация букв “second” в любом регистре в текущей папке
-grep -si second * // include cur dir
-find . -mindepth 2 | xargs grep -i second // exclude cur dir
+grep -si second *
 
 29. Найти строки в файлах где есть комбинация букв “second” во всех папках ниже уровнем
-grep -sir second 
+grep -sir second // include cur dir
+find . -mindepth 2 | xargs grep -i second // exclude cur dir
 
 30. Найти только путь и название файла в строках которых есть комбинация букв “second” в текущей папке
 grep -sl second *
@@ -121,7 +123,7 @@ grep -sl second *
 grep -sv second *
 
 32. Найти только название и путь к файлам где нет комбинации “second”
-grep -svl second *
+grep -sL second *
 
 33. Вывести в терминал 4 последних строк любого текстового файла
 tail -4 tf_3.txt 
@@ -133,16 +135,16 @@ head -4 tf_3.txt
 mkdir -p dir; echo "some text" > dir/file.txt
 
 36. Команда в одну строку. Переместить в любую одну папку текстовые файлы у которых в содержимом есть слово “sec”
-grep -sl sec * | xargs -I% mv % dir
+grep -wl sec *.txt | xargs -I% mv % dir
 
 37. Команда в одну строку. Скопировать в любую одну папку текстовые файлы у которых в содержимом есть слово “sec”
-grep -sl sec * | xargs -I% cp % dir
+grep -wl sec *.txt | xargs -I% cp % dir
 
 38. Команда в одну строку. Найти все строки c “sec” во всех текстовых файлах, скопировать и вставить эти строки в один новый созданный текстовый файл.
-grep -h sec * > tf_5.txt
+grep -h sec *.txt > tf_5.txt
 
 39. Команда в одну строку. Удалить текстовые файлы у которых в содержимом есть слово “sec”
-grep -sl sec * | xargs rm -f 
+grep -wl sec *.txt | xargs rm -f 
 
 40. Просто вывести в терминал строку “Good job!!”
 echo "Good job!!"
