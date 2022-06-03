@@ -11,7 +11,7 @@
 
 `git checkout -b jmetter` - create and switch to a new branch 'jmetter'.
 
-`git branch CheckLists; git branch BugReports; git branch sql; git branch charles; git branch mobileTesting` - create many repos.
+`git branch CheckLists; git branch BugReports; git branch sql; git branch charles; git branch mobileTesting` - create many branches.
 
 #### 2. Запушить все ветки на внешний репозиторий
 
