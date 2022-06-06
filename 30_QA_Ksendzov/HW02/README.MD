@@ -200,6 +200,8 @@ empty lines: `printf "%s\n" "line number "{1..15} | sed 's/.*//' > tf_4.txt`
 
 `grep -wl sec *.txt | xargs mv -t dir`
 
+`mv -t dir $(grep -wl sec *.txt)`
+
 #### 37. Команда в одну строку. Скопировать в любую одну папку текстовые файлы у которых в содержимом есть слово “sec”
 
 `grep -wl sec *.txt | xargs -I% cp % dir`
