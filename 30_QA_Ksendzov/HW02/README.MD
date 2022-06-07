@@ -166,7 +166,7 @@ empty lines: `printf "%s\n" "line number "{1..15} | sed 's/.*//' > tf_4.txt`
 
 `grep -sir second` // include cur dir
 
-`find . -mindepth 2 | xargs grep -r second` // exclude cur dir
+`find . -mindepth 2 | xargs grep second` // exclude cur dir
 
 `grep -r 'second' */` // this work too
 
