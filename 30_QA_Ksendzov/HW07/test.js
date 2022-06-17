@@ -32,10 +32,9 @@ if (age_1 < age_2) {
   console.log("Technical work");
 }
 
-checkAge(".17");
-checkAge(18);
-checkAge(61);
-
+/**
+ * Input from console
+ *  
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -46,27 +45,49 @@ rl.question("Input your age: ", (answer) => {
   rl.close();
   checkAge(answer);
 });
+*/
 
+console.log('\n-----\nFunction checkAge testing\n-----\n');
+
+checkAge(0);
+checkAge(20);
+checkAge(60);
+checkAge(61);
+checkAge('35');
+checkAge('.35');
+checkAge('0');
+checkAge(.35);
+checkAge(-1);
+checkAge('.5e2');
+checkAge(1e1000);
+checkAge('0xff');
+checkAge('0b111');
+checkAge('');
+checkAge(' ');
+checkAge("c.17");
+checkAge(true);
+checkAge(false);
+checkAge(undefined);
+checkAge({});
+checkAge([]);
 
 function checkAge(age_1, age_2 = 18, age_3 = 60) {
 
-  if (typeof age_1 !== "number") {
-    if (parseInt(age_1) != age_1){
-      console.log(`First argument must be a number, not ${typeof age_1}`);
+  for (let i=0; i < arguments.length; i++){
+    if (isNaN(arguments[i]) || isNaN(parseFloat(arguments[i]))){
+      console.log(`Argument age_${i+1} must be a number, not ${typeof arguments[i]}. Value passed: ${arguments[i]}`);
       return;
-    } else {
-      age_1 = parseInt(age_1);
     }
   }
 
   if (age_1 < age_2) {
-    console.log(`You don’t have access cause your age is ${age_1} It’s less then ${age_2}`);
+    console.log(age_1, `You don’t have access cause your age is ${age_1} It’s less then ${age_2}`);
   } else if (age_1 >= age_2 && age_1 < age_3) {
-    console.log("Welcome !");
+    console.log(age_1, "Welcome !");
   } else if (age_1 > age_3) {
-    console.log("Keep calm and look Culture channel");
+    console.log(age_1, "Keep calm and look Culture channel");
   } else {
-    console.log("Technical work");
+    console.log(age_1, "Technical work");
   }
 
 }

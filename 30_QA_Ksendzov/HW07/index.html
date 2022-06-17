@@ -1,0 +1,66 @@
+<html>
+
+<head>
+  <title>Second JS hmework</title>
+
+  <script>
+    let resultDivId = "result";
+    let inputId = "input";
+
+    function checkAge(age_1, age_2 = 18, age_3 = 60) {
+
+      let div = document.getElementById(resultDivId);
+
+      for (let i = 0; i < arguments.length; i++) {
+        if (isNaN(arguments[i]) || isNaN(parseFloat(arguments[i]))){
+          div.innerHTML +=
+            `Argument age_${i + 1} must be a number, not ${typeof arguments[i]}. Value passed: ${arguments[i]}<br>`;
+          return;
+        }
+      }
+
+      let message = '';
+      if (age_1 < age_2) {
+        message = `You don’t have access cause your age is ${age_1} It’s less then ${age_2}`;
+      } else if (age_1 >= age_2 && age_1 < age_3) {
+        message = "Welcome !";
+      } else if (age_1 > age_3) {
+        message = "Keep calm and look Culture channel";
+      } else {
+        message = "Technical work";
+      }
+
+      div.innerHTML += `${age_1} : ${message}<br>`;
+
+    }
+
+    function validateInput() {
+      clearResult();
+
+      inputValues = document.getElementById(inputId).value.split(/[,;]|\s/);
+      inputValues.forEach(element => {
+        element && checkAge(element);
+      });
+
+    }
+
+    function clearResult() {
+      document.getElementById(resultDivId).innerText = '';
+    }
+  </script>
+</head>
+
+<body>
+  <div id="result" style="border: 1px solid; min-height: 14px; margin-bottom: 14px"></div>
+  <a href="#" onclick="clearResult()">Clear result</a>
+  <div>
+    <input id="input" oninput="validateInput();">
+  </div>
+
+  <script>
+    let age = prompt("Tell me about your age, please");
+    checkAge(age);
+  </script>
+</body>
+
+</html>
