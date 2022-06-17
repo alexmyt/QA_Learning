@@ -32,7 +32,7 @@ if (age_1 < age_2) {
   console.log("Technical work");
 }
 
-checkAge("17q");
+checkAge(".17");
 checkAge(18);
 checkAge(61);
 
