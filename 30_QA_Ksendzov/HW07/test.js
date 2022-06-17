@@ -50,14 +50,16 @@ rl.question("Input your age: ", (answer) => {
 console.log('\n-----\nFunction checkAge testing\n-----\n');
 
 checkAge(0);
-checkAge(20);
+checkAge(17);
+checkAge(18);
+checkAge(59);
 checkAge(60);
 checkAge(61);
+checkAge(.35);
 checkAge('35');
 checkAge('.35');
 checkAge('0');
-checkAge(.35);
-checkAge(-1);
+checkAge('-1');
 checkAge('.5e2');
 checkAge(1e1000);
 checkAge('0xff');
@@ -70,11 +72,12 @@ checkAge(false);
 checkAge(undefined);
 checkAge({});
 checkAge([]);
+checkAge([1]);
 
 function checkAge(age_1, age_2 = 18, age_3 = 60) {
 
   for (let i=0; i < arguments.length; i++){
-    if (isNaN(arguments[i]) || isNaN(parseFloat(arguments[i]))){
+    if (isNaN(arguments[i]) || isNaN(parseFloat(arguments[i])) || typeof arguments[i] === 'object'){
       console.log(`Argument age_${i+1} must be a number, not ${typeof arguments[i]}. Value passed: ${arguments[i]}`);
       return;
     }
