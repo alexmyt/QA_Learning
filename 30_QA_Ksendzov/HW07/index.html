@@ -12,7 +12,7 @@
       let div = document.getElementById(resultDivId);
 
       for (let i = 0; i < arguments.length; i++) {
-        if (isNaN(arguments[i]) || isNaN(parseFloat(arguments[i]))){
+        if (isNaN(arguments[i]) || isNaN(parseFloat(arguments[i])) || typeof arguments[i] === 'object'){
           div.innerHTML +=
             `Argument age_${i + 1} must be a number, not ${typeof arguments[i]}. Value passed: ${arguments[i]}<br>`;
           return;
