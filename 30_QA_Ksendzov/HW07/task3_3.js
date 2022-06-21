@@ -72,6 +72,7 @@ const enterprises = [
 */
 
 function printStructure() {
+
   enterprises.forEach(enterprise => {
 
     let employees_count = enterprise.departments.reduce((sum, department) => sum += department.employees_count, 0);
@@ -82,9 +83,7 @@ function printStructure() {
       console.log(`- ${department.name} (${department.employees_count || 'нет'} сотрудников)`);
     })
   });
-
 }
-
 
 /* 2. Написать функцию, которая будет принимать 1 аргумент (id отдела или название отдела и возвращать название предприятия, к которому относится).
 
@@ -96,20 +95,16 @@ getEnterpriseName("Отдел маркетинга") // Предприятие 2
 
 function getEnterpriseName(id) {
 
-  let foundName;
-
-  enterprises.forEach(enterprise => {
-    if (enterprise.id == id || enterprise.name == id)  {
-      foundName = enterprise.name;
-      return; // this return from callback function, not from function findById!
+  for (let enterprise of enterprises) {
+    if (enterprise.id == id || enterprise.name == id) {
+      return enterprise.name;
     }
 
     if (enterprise.departments.find(element => element.id == id || element.name == id)) {
-      foundName = enterprise.name;
-      return; // this return from callback function, not from function findById!
+      return enterprise.name;
     }
 
-  });
+  };
 
   return foundName;
 }
@@ -120,26 +115,74 @@ function getEnterpriseName(id) {
 addEnterprise("Название нового предприятия")
 */
 
-function addEnterprise(name){
+function addEnterprise(name) {
+  
   enterprises.push({
-    "id": 9,
+    "id": getNewId(),
     "name": name,
     "departments": []
   });
+
 }
 
-/* 4. Написать функцию, которая будет добавлять отдел в предприятие. В качестве аргумента принимает id предприятия, в которое будет добавлен отдел и название отдела.
+/**
+ * Return the new ID
+ */
+function getNewId() {
+  
+  let maxId = 0;
+
+  enterprises.forEach(enterprise => {
+    maxId = Math.max(maxId, enterprise.id);
+
+    enterprise.departments.forEach(department => {
+      maxId = Math.max(maxId, department.id);
+    });
+  });
+
+  return ++maxId;
+}
+
+/* 4. Написать функцию, которая будет добавлять отдел в предприятие. 
+В качестве аргумента принимает id предприятия, в которое будет добавлен отдел и название отдела.
 
 Пример:
 addDepartment(1, "Название нового отдела")
+*/
 
-5. Написать функцию для редактирования названия предприятия. Принимает в качестве аргумента id предприятия и новое имя предприятия.
+function addDepartment(enterpriseId, departmentName, employees_count = 0) {
+
+  for (let enterprise of enterprises) {
+    if (enterprise.id == enterpriseId) {
+      enterprise.departments.push({
+        "id": getNewId(),
+        "name": departmentName,
+        "employees_count": employees_count,
+      });
+
+      break;
+    }
+  }
+}
+
+/* 5. Написать функцию для редактирования названия предприятия. 
+Принимает в качестве аргумента id предприятия и новое имя предприятия.
 
 Пример:
 editEnterprise(1, "Новое название предприятия")
+*/
 
+function editEnterprise(enterpriseId, newName){
 
-6. Написать функцию для редактирования названия отдела. Принимает в качестве аргумента id отдела и новое имя отдела.
+  for(let enterprise of enterprises){
+    if(enterprise.id == enterpriseId){
+      enterprise.name = newName;
+      break;
+    }
+  }
+}
+
+/* 6. Написать функцию для редактирования названия отдела. Принимает в качестве аргумента id отдела и новое имя отдела.
 
 Пример:
 editDepartment(7, "Новое название отдела")
@@ -166,6 +209,9 @@ moveEmployees(2, 3)
 
 printStructure();
 console.log(getEnterpriseName(4));
-console.log(getEnterpriseName("Отдел маркетинга"));
+console.log(getEnterpriseName("Отдел разработки"));
 
-addEnterprise("Предприяте 4");
+addEnterprise("Предприяте");
+addDepartment(11, "Название нового отдела", 5);
+
+editEnterprise(11, "Предприятие 4");
