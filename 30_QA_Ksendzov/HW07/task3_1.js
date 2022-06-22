@@ -82,7 +82,7 @@ const users = [
 ];
 
 /**
- * 
+ * Variant 1 - with loop
  * @param {object} users - array of users structures
  * @param {object} regDates - array of registration dates
  */
@@ -93,7 +93,7 @@ const printUsersByRegDates = function (users, regDates) {
 }
 
 /**
- * 
+ * Variant 2 - with 'filter' method of array
  * @param {object} users array of users structures
  * @param {object} regDates array of registration dates
  * @returns {object} array of users which registrationDaye in regDates

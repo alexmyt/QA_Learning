@@ -356,7 +356,7 @@ const peoples = [{
 ];
 
 /**
- * 
+ * Return array with unequiie objects
  * @param {object} peoples 
  */
 const getUnequiePeoples = function (peoples) {
