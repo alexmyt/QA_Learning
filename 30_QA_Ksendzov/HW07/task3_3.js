@@ -152,16 +152,13 @@ addDepartment(1, "Название нового отдела")
 
 function addDepartment(enterpriseId, departmentName, employees_count = 0) {
 
-  for (let enterprise of enterprises) {
-    if (enterprise.id == enterpriseId) {
-      enterprise.departments.push({
-        "id": getNewId(),
-        "name": departmentName,
-        "employees_count": employees_count,
-      });
-
-      break;
-    }
+  let enterpriseIndex = enterprises.findIndex(element => element.id == enterpriseId);
+  if(enterpriseIndex >= 0 ){
+    enterprises[enterpriseIndex].departments.push({
+      "id": getNewId(),
+      "name": departmentName,
+      "employees_count": employees_count,
+    });
   }
 }
 
@@ -174,11 +171,9 @@ editEnterprise(1, "Новое название предприятия")
 
 function editEnterprise(enterpriseId, newName){
 
-  for(let enterprise of enterprises){
-    if(enterprise.id == enterpriseId){
-      enterprise.name = newName;
-      break;
-    }
+  let enterpriseIndex = enterprises.findIndex(element => element.id == enterpriseId);
+  if(enterpriseIndex >= 0 ){
+    enterprises[enterpriseIndex].name = newName;
   }
 }
 
@@ -186,9 +181,14 @@ function editEnterprise(enterpriseId, newName){
 
 Пример:
 editDepartment(7, "Новое название отдела")
+*/
+
+function editDepartment(departmentId, newName){
 
 
-7. Написать функцию для удаления предприятия. В качестве аргумента принимает id предприятия.
+}
+
+/* 7. Написать функцию для удаления предприятия. В качестве аргумента принимает id предприятия.
 
 Пример:
 deleteEnterprise(1)
@@ -207,11 +207,12 @@ moveEmployees(2, 3)
 
 */
 
-printStructure();
 console.log(getEnterpriseName(4));
 console.log(getEnterpriseName("Отдел разработки"));
 
 addEnterprise("Предприяте");
-addDepartment(11, "Название нового отдела", 5);
+addDepartment(11, "Бухгалтерия", 5);
 
 editEnterprise(11, "Предприятие 4");
+
+printStructure();
