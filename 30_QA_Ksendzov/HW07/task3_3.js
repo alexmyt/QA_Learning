@@ -1,4 +1,4 @@
-const enterprises = [
+let enterprises = [
   {
     id: 1,
     name: "Предприятие 1",
@@ -185,6 +185,13 @@ editDepartment(7, "Новое название отдела")
 
 function editDepartment(departmentId, newName){
 
+  for(let enterprise of enterprises){
+    let departmentIndex = enterprise.departments.findIndex(element => element.id == departmentId);
+    if(departmentIndex >= 0 ){
+      enterprise.departments[departmentIndex].name = newName;
+      break;
+    }
+  }
 
 }
 
@@ -192,9 +199,24 @@ function editDepartment(departmentId, newName){
 
 Пример:
 deleteEnterprise(1)
+*/
 
+function deleteEnterprise(enterpriseId){
+  
+  let enterpriseIndex = enterprises.findIndex(element => element.id == enterpriseId);
+  if(enterpriseIndex >= 0 ){
+  
+    let employees_count = enterprises[enterpriseIndex].departments.reduce((sum, department) => sum += department.employees_count, 0);
 
-8. Написать функцию для удаления отдела. В качестве аргумента принимает id отдела. Удалить отдел можно только, если в нем нет сотрудников.
+    if (employees_count == 0){
+      enterprises = enterprises.filter(element => element.id != enterpriseId);
+    } else{
+      console.log(`Предприятие "${enterprises[enterpriseIndex].name}" содержит подразделения с сотрудниками.`)
+    }
+  }
+}
+
+/* 8. Написать функцию для удаления отдела. В качестве аргумента принимает id отдела. Удалить отдел можно только, если в нем нет сотрудников.
 
 Пример:
 deleteDepartment(3)
@@ -211,8 +233,14 @@ console.log(getEnterpriseName(4));
 console.log(getEnterpriseName("Отдел разработки"));
 
 addEnterprise("Предприяте");
-addDepartment(11, "Бухгалтерия", 5);
+addDepartment(11, "Отделение", 0);
 
 editEnterprise(11, "Предприятие 4");
+
+editDepartment(12, "Бухгалтерия")
+
+printStructure();
+
+deleteEnterprise(1)
 
 printStructure();
