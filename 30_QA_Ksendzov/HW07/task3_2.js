@@ -1,7 +1,7 @@
 // Дан массив объектов. Каждый объект является идентификационной карточкой человека. 
 // Нам нужно хранить только уникальные значения в этом массиве. 
 // Реализуйте функцию, которая будет выполнять эту работу.
-const peoples = [{
+let peoples = [{
     "name": "Leanne Graham",
     "username": "Bret",
     "email": "Sincere@april.biz",
@@ -355,6 +355,7 @@ const peoples = [{
 }
 ];
 
+
 /**
  * Return array with unequiie objects
  * @param {object} peoples 
@@ -402,3 +403,15 @@ const isEqual = function (a, b) {
 uneqPeples = getUnequiePeoples(peoples);
 console.log(uneqPeples);
 console.log(`Found ${uneqPeples.length} unequie peoples from set of ${peoples.length} peoples`);
+
+
+/* Реализуйте считывание из JSONки из файла task2.json с помощью, например, модуля fs. 
+* для дальнейшего использования в функции, описанной в задании */
+
+const fs = require('fs');
+
+fs.readFile('task3_2.json',(err, buffer) => {
+    peoples = JSON.parse(buffer);
+    uneqPeples = getUnequiePeoples(peoples);
+    console.log(`Found ${uneqPeples.length} unequie peoples from set of ${peoples.length} peoples`);
+})
