@@ -95,11 +95,13 @@ const printUsersByRegDates = function (users, regDates) {
 /**
  * Variant 2 - with 'filter' method of array
  * @param {object} users array of users structures
- * @param {object} regDates array of registration dates
+ * @param {object|string} regDates string or array of registration dates
  * @returns {object} array of users which registrationDaye in regDates
  */
 const filterUsersByRegDates = function(users, regDates){
-    return users.filter(element => regDates.includes(element.registrationDate))
+    return Array.isArray(regDates)
+        ? users.filter(element => regDates.includes(element.registrationDate))
+        : users.filter(element => regDates == element.registrationDate);
 }
 
 //printUsersByRegDates(users, ['09.10.2021', '10.10.2021']);
