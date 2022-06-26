@@ -410,7 +410,11 @@ console.log(`Found ${uneqPeples.length} unequie peoples from set of ${peoples.le
 
 const fs = require('fs');
 
-fs.readFile('task3_2.json',(err, buffer) => {
+fs.readFile(`${__dirname}/task3_2.json`, (err, buffer) => {
+    if (err) {
+        throw err;
+    }
+
     peoples = JSON.parse(buffer);
     uneqPeples = getUnequiePeoples(peoples);
     console.log(`Found ${uneqPeples.length} unequie peoples from set of ${peoples.length} peoples`);
