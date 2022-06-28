@@ -106,3 +106,4 @@ const filterUsersByRegDates = function(users, regDates){
 
 //printUsersByRegDates(users, ['09.10.2021', '10.10.2021']);
 console.log(filterUsersByRegDates(users, ['09.10.2021', '10.10.2021']));
+console.log(filterUsersByRegDates(users, '12.10.2021'));
