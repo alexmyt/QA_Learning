@@ -165,7 +165,8 @@ getEnterpriseName("Отдел маркетинга") // Предприятие 2
 */
 
 function getEnterpriseNameByDepartment(id) {
-  return getEnterpriseByDepartment(id)?.name;
+  enterprise = getEnterpriseByDepartment(id);
+  return enterprise ? enterprise.name : 'Not found';
 }
 
 /* 3. Написать функцию, которая будет добавлять предприятие. В качестве аргумента принимает название предприятия
@@ -307,7 +308,6 @@ addEnterprise("Предприяте");
 addDepartment(11, "Отделение", 0);
 
 editEnterprise(11, "Предприятие 4");
-
 editDepartment(12, "Бухгалтерия")
 
 try {
