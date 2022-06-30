@@ -1,0 +1,19 @@
+isPositive,name,age,salary,Description
+1,Alexey,47,3000,Positive test
+1,Ale,47,3000,Positive test - name with min length
+1,Alexey Alexey Alexey Alexey Alexey Alexe,47,3000,Positive test - name with max length
+1,Alexey,18,3000,Positive test - minimum age
+1,Alexey,120,3000,Positive test - maximum age
+1,Alexey,49,1,Positive test - minimum salary
+1,Alexey,49,1000000,Positive test - maximum salary
+0,,47,3000,Name is absent
+0,Al,47,3000,Name length less then 3 chars
+0,abcdefghijklmnoqrstuvwxyzabcdefghijklmnoqrstuvwxyz,47,3000,Name length more then 40 chars
+0, Alexey,47,3000,Name with spaces at begin
+0,Alexey ,47,3000,Name with spaces at encoding
+0,Alexey,,3000,Age is absent
+0,Alexey,17,3000,Age is less then 18
+0,Alexey,121,3000,Age is more then 120
+0,Alexey,47,,Salary is absent
+0,Alexey,47,0,Salary is 0
+0,Alexey,47,1000001,Salary is more then 1000000
