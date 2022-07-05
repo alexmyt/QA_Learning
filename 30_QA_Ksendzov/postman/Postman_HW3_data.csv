@@ -9,11 +9,16 @@ isPositive,name,age,salary,Description
 0,,47,3000,Name is absent
 0,Al,47,3000,Name length less then 3 chars
 0,abcdefghijklmnoqrstuvwxyzabcdefghijklmnoqrstuvwxyz,47,3000,Name length more then 40 chars
-0, Alexey,47,3000,Name with spaces at begin
-0,Alexey ,47,3000,Name with spaces at encoding
+0,"    ",47,3000,Name contain only spaces
+0," Alexey",47,3000,Name with spaces at begin
+0,"Alexey ",47,3000,Name with spaces at encoding
 0,Alexey,,3000,Age is absent
 0,Alexey,17,3000,Age is less then 18
 0,Alexey,121,3000,Age is more then 120
+0,Alexey,forty seven,3000,Age is not number
+0,Alexey,47.5,3000,Age is not integer
 0,Alexey,47,,Salary is absent
 0,Alexey,47,0,Salary is 0
+0,Alexey,47,"none",Salary is not number
+0,Alexey,47,1000.5,Salary is not integer
 0,Alexey,47,1000001,Salary is more then 1000000
